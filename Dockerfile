@@ -29,6 +29,9 @@ RUN mkdir -p storage/framework/cache \
 
 RUN php artisan config:clear
 
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 EXPOSE 8000
 
-CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-8000}"]
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
