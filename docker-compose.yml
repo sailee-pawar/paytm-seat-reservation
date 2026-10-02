@@ -19,6 +19,7 @@ services:
       DB_DATABASE: seat_reservation
       DB_USERNAME: seat_user
       DB_PASSWORD: seat_password
+      PHP_CLI_SERVER_WORKERS: "8"
 
     depends_on:
       postgres:
